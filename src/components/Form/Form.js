@@ -27,20 +27,18 @@ const Form = (props) => {
     e.preventDefault();
 
     let investmentData = {
-      "current-savings": currentSavings,
-      "yearly-contribution": yearlySavings,
-      "expected-return": expectedInterest,
-      duration: invDuration,
+      "current-savings": +currentSavings,
+      "yearly-contribution": +yearlySavings,
+      "expected-return": +expectedInterest,
+      duration: +invDuration,
     };
 
-    console.log(investmentData);
-
-    setCurrentSavings("");
-    setYearlySavings("");
-    setExpectedInterest("");
-    setInvDuration("");
-
     props.submitted(investmentData);
+
+    // setCurrentSavings("");
+    // setYearlySavings("");
+    // setExpectedInterest("");
+    // setInvDuration("");
   };
 
   const resetHandler = () => {
@@ -48,6 +46,8 @@ const Form = (props) => {
     setYearlySavings("");
     setExpectedInterest("");
     setInvDuration("");
+
+    props.resetted("");
   };
 
   return (
